@@ -14,16 +14,10 @@ Dashboard example: [grafana.json](setup/grafana.json)
 
 ![image](setup/grafana.png)
 
-## Build the Container
-
-```sh
-DOCKER_BUILDKIT=1 docker build --progress=plain -t solar_exporter .
-```
-
 ## Run the Container
 
 ```sh
-docker run -d --name solar_exporter \
+docker run -d --name m13t/deye-solar-prom-exporter \
     -p 9942:9942 \
     -e DEYE_IP=192.168.2.15 \
     -e DEYE_USER=admin \
@@ -31,7 +25,13 @@ docker run -d --name solar_exporter \
     solar_exporter
 ```
 
-## Example output 
+## Build the Container
+
+```sh
+DOCKER_BUILDKIT=1 docker build --progress=plain -t solar_exporter .
+```
+
+## Example output
 
 ```yml
 # Solar Exporter
